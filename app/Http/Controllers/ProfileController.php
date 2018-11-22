@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Profile;
 use Illuminate\Http\Request;
 
@@ -46,7 +47,9 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile)
     {
-        //
+        $user = Auth::user();
+        $profile = $user->profile;
+        return view('profile')->with('profile', $profile);
     }
 
     /**
