@@ -25,8 +25,12 @@ Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->na
 Route::get('/user/{user_id}/profile/{profile_id}/edit', 'ProfileController@edit')->name('profile.edit');
 Route::patch('/user/{user_id}/profile/{profile_id}', 'ProfileController@update')->name('profile.update');
 
+Route::get('/question/{question_id}/answer/create', 'AnswerController@create')->name('answer.create');
 Route::get('/question/{question_id}/answer/{answer_id}', 'AnswerController@show')->name('answer.show');
-
+Route::get('/question/{question_id}/answer/{answer_id}/edit', 'AnswerController@edit')->name('answer.edit');
+Route::post('/question/{question_id}/answer/', 'AnswerController@store')->name('answer.store');
+Route::patch('/question/{question_id}/answer/{answer_id}', 'AnswerController@update')->name('answer.update');
+Route::delete('/question/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answer.destroy');
 
 Route::resources([
     'question' => 'QuestionController',
