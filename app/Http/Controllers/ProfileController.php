@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use App\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 
 class ProfileController extends Controller
@@ -102,7 +102,7 @@ class ProfileController extends Controller
         $profile->fname = $request->lname;
         $profile->lname = $request->lname;
         $profile->body = $request->body;
-        //$profile->save();
+        $profile->save();
         return redirect()->route('home')->with('message', 'Updated Profile');
     }
 
